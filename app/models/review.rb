@@ -12,7 +12,4 @@ class Review < ActiveRecord::Base
       errors.add(:reservation, "try again")
     end
   end
-
-  # use or
-  # if there is not a reso or not accepted
 end
