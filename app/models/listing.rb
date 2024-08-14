@@ -16,6 +16,17 @@ class Listing < ActiveRecord::Base
   before_create :make_host
   after_destroy :not_host
 
+  def average_review_rating
+    total_ratings = 0
+    review_count = 0
+
+    self.reviews.each do |review|
+      total_ratings += review.rating
+      review_count += 1
+    end
+    total_ratings.to_f / review_count
+  end
+
   private
 
   def make_host
